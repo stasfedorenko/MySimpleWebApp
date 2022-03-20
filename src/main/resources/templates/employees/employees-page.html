@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body style="background: beige">
+<h1 class="m-2 text-center">Employees</h1>
+<div class="m-2 text-center" >
+    <a class="h3" th:href="@{/employees/create}">Add New Employee</a>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Department</th>
+            <th>Job title</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="employee : ${employees}">
+            <tr>
+                <td>[[${employee.employee_id}]]</td>
+                <td>[[${employee.first_name}]]</td>
+                <td>[[${employee.last_name}]]</td>
+                <td>[[${employee.department_id}]]</td>
+                <td>[[${employee.job_title}]]</td>
+                <td>[[${employee.gender}]]</td>
+                <td>[[${employee.date_of_birth}]]</td>
+                <td>
+                    <form method="get"
+                          th:action="@{'/employees/update/'+${employee.getEmployee_id()}}">
+                        <input class="btn btn-warning h5 mr-1" type="submit" value="Edit"/>
+                    </form>
+                    <form method="post"
+                          th:action="@{/employees/{id}(id=${employee.getEmployee_id()})}">
+                        <input type="hidden" name="_method" value="delete"/>
+                        <input class="btn btn-danger h5 mr-1" type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
