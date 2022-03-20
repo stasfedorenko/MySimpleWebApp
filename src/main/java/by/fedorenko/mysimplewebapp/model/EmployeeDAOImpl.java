@@ -53,7 +53,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 Long department_id = rs.getLong("department_id");
                 String job_title = rs.getString("job_title");
                 String gender = rs.getString("gender");
-                String date_of_birth = rs.getString("date_of_birth");
+                Date date_of_birth = rs.getDate("date_of_birth");
                 employee = new Employee(employee_id, first_name, last_name, department_id,
                         job_title, gender, date_of_birth);
             }
@@ -76,7 +76,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 Long department_id = rs.getLong("department_id");
                 String job_title = rs.getString("job_title");
                 String gender = rs.getString("gender");
-                String date_of_birth = rs.getString("date_of_birth");
+                Date date_of_birth = rs.getDate("date_of_birth");
                 employees.add(new Employee(employee_id, first_name, last_name, department_id,
                         job_title, gender, date_of_birth));
             }
@@ -93,7 +93,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setLong(3, employee.getDepartment_id());
             statement.setString(4, employee.getJob_title());
             statement.setObject(5, employee.getGender());
-            statement.setString(6, employee.getDate_of_birth());
+            statement.setDate(6, employee.getDate_of_birth());
             statement.executeUpdate();
         }
     }
@@ -107,7 +107,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setLong(3, employee.getDepartment_id());
             statement.setString(4, employee.getJob_title());
             statement.setObject(5, employee.getGender());
-            statement.setString(6, employee.getDate_of_birth());
+            statement.setDate(6, employee.getDate_of_birth());
             statement.setLong(7, employee.getEmployee_id());
             statement.executeUpdate();
         }

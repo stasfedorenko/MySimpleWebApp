@@ -1,7 +1,7 @@
 package by.fedorenko.mysimplewebapp.entity;
 
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Employee {
 
@@ -18,7 +18,7 @@ public class Employee {
 
     private String gender;
 
-    private String date_of_birth;
+    private Date date_of_birth;
 
     public Employee() {
 }
@@ -26,7 +26,7 @@ public class Employee {
     public Employee(String first_name,
                     String last_name, Long department_id,
                     String job_title, String gender,
-                    String date_of_birth) {
+                    Date date_of_birth) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.department_id = department_id;
@@ -39,7 +39,7 @@ public class Employee {
     public Employee(Long employee_id, String first_name,
                     String last_name, Long department_id,
                     String job_title, String gender,
-                    String date_of_birth) {
+                    Date date_of_birth) {
         this.employee_id = employee_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -105,11 +105,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getDate_of_birth() {
+    public Date getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(String date_of_birth) {
+    public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 }
