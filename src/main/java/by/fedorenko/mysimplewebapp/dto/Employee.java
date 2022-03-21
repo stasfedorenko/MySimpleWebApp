@@ -1,4 +1,4 @@
-package by.fedorenko.mysimplewebapp.entity;
+package by.fedorenko.mysimplewebapp.dto;
 
 
 import java.sql.Date;
@@ -16,7 +16,7 @@ public class Employee {
 
     private String job_title;
 
-    private String gender;
+    private Gender gender;
 
     private Date date_of_birth;
 
@@ -25,7 +25,7 @@ public class Employee {
 
     public Employee(String first_name,
                     String last_name, Long department_id,
-                    String job_title, String gender,
+                    String job_title, Gender gender,
                     Date date_of_birth) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -38,7 +38,7 @@ public class Employee {
 
     public Employee(Long employee_id, String first_name,
                     String last_name, Long department_id,
-                    String job_title, String gender,
+                    String job_title, Gender gender,
                     Date date_of_birth) {
         this.employee_id = employee_id;
         this.first_name = first_name;
@@ -97,11 +97,11 @@ public class Employee {
         this.job_title = job_title;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

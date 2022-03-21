@@ -35,6 +35,10 @@
                 <td>[[${employee.date_of_birth}]]</td>
                 <td>
                     <form method="get"
+                          th:action="@{'/employees/'+${employee.getEmployee_id()}}">
+                        <input class="btn btn-primary h5 mr-1" type="submit" value="Show"/>
+                    </form>
+                    <form method="get"
                           th:action="@{'/employees/update/'+${employee.getEmployee_id()}}">
                         <input class="btn btn-warning h5 mr-1" type="submit" value="Edit"/>
                     </form>

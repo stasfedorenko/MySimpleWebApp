@@ -1,6 +1,6 @@
 package by.fedorenko.mysimplewebapp.service;
 
-import by.fedorenko.mysimplewebapp.entity.Employee;
+import by.fedorenko.mysimplewebapp.dto.Employee;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,7 +1,8 @@
-package by.fedorenko.mysimplewebapp.model;
+package by.fedorenko.mysimplewebapp.dao;
 
 
-import by.fedorenko.mysimplewebapp.entity.Employee;
+import by.fedorenko.mysimplewebapp.dto.Employee;
+import by.fedorenko.mysimplewebapp.dto.Gender;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -55,7 +56,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String gender = rs.getString("gender");
                 Date date_of_birth = rs.getDate("date_of_birth");
                 employee = new Employee(employee_id, first_name, last_name, department_id,
-                        job_title, gender, date_of_birth);
+                        job_title,  Gender.valueOf(gender), date_of_birth);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +79,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String gender = rs.getString("gender");
                 Date date_of_birth = rs.getDate("date_of_birth");
                 employees.add(new Employee(employee_id, first_name, last_name, department_id,
-                        job_title, gender, date_of_birth));
+                        job_title, Gender.valueOf(gender), date_of_birth));
             }
         }
         return employees;
@@ -92,7 +93,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setString(2, employee.getLast_name());
             statement.setLong(3, employee.getDepartment_id());
             statement.setString(4, employee.getJob_title());
-            statement.setObject(5, employee.getGender());
+            statement.setString(5, employee.getGender().toString());
             statement.setDate(6, employee.getDate_of_birth());
             statement.executeUpdate();
         }
@@ -106,7 +107,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setString(2, employee.getLast_name());
             statement.setLong(3, employee.getDepartment_id());
             statement.setString(4, employee.getJob_title());
-            statement.setObject(5, employee.getGender());
+            statement.setString(5, employee.getGender().toString());
             statement.setDate(6, employee.getDate_of_birth());
             statement.setLong(7, employee.getEmployee_id());
             statement.executeUpdate();

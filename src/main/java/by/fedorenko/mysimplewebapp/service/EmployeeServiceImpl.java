@@ -1,8 +1,8 @@
 package by.fedorenko.mysimplewebapp.service;
 
 
-import by.fedorenko.mysimplewebapp.entity.Employee;
-import by.fedorenko.mysimplewebapp.model.EmployeeDAO;
+import by.fedorenko.mysimplewebapp.dto.Employee;
+import by.fedorenko.mysimplewebapp.dao.EmployeeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

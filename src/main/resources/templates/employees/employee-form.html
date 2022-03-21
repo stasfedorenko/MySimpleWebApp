@@ -42,10 +42,22 @@
                 </div>
             </div>
             <div class="form-group row m-3">
-                <label class="col-sm-4 col-form-label text-center">Gender:</label>
+                <label class="col-sm-4 col-form-label text-center">Gender :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="gender" name="gender" class="form-control"
-                           th:field="*{gender}"/>
+                    <div class="form-check form-check-inline">
+                        <input th:field="*{gender}" class="form-check-input" type="radio" value="MALE" name="gender"
+                               id="genderMale" checked>
+                        <label class="form-check-label" for="genderMale">
+                            MALE
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input th:field="*{gender}" class="form-check-input" type="radio" value="FEMALE" name="gender"
+                               id="genderFemale">
+                        <label class="form-check-label" for="genderFemale">
+                            FEMALE
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="form-group row m-3">

@@ -1,12 +1,11 @@
 package by.fedorenko.mysimplewebapp.controller;
 
-import by.fedorenko.mysimplewebapp.entity.Employee;
+import by.fedorenko.mysimplewebapp.dto.Employee;
 import by.fedorenko.mysimplewebapp.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
