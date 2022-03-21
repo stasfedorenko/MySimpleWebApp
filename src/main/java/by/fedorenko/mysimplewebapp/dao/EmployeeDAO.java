@@ -11,11 +11,9 @@ public interface EmployeeDAO {
 
     List<Employee> getAll() throws SQLException;
 
-    void insert(Employee employee) throws SQLException;
+    boolean insert(Employee employee) throws SQLException;
 
-    void update(Employee employee) throws SQLException;
+    boolean update(Employee employee) throws SQLException;
 
-    void delete(Long id) throws SQLException;
-
-
+    boolean delete(Long id) throws SQLException;
 }

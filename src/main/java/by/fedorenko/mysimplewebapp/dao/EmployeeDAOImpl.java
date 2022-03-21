@@ -56,7 +56,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String gender = rs.getString("gender");
                 Date date_of_birth = rs.getDate("date_of_birth");
                 employee = new Employee(employee_id, first_name, last_name, department_id,
-                        job_title,  Gender.valueOf(gender), date_of_birth);
+                        job_title, Gender.valueOf(gender), date_of_birth);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +86,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void insert(Employee employee) throws SQLException {
+    public boolean insert(Employee employee) throws SQLException {
+        boolean result = false;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_EMPLOYEE_SQL)) {
             statement.setString(1, employee.getFirst_name());
@@ -95,12 +96,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setString(4, employee.getJob_title());
             statement.setString(5, employee.getGender().toString());
             statement.setDate(6, employee.getDate_of_birth());
-            statement.executeUpdate();
+            result = statement.executeUpdate() > 0;
         }
+        return result;
     }
 
     @Override
-    public void update(Employee employee) throws SQLException {
+    public boolean update(Employee employee) throws SQLException {
+        boolean result = false;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEE_SQL)) {
             statement.setString(1, employee.getFirst_name());
@@ -110,16 +113,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.setString(5, employee.getGender().toString());
             statement.setDate(6, employee.getDate_of_birth());
             statement.setLong(7, employee.getEmployee_id());
-            statement.executeUpdate();
+            result = statement.executeUpdate()>0;
         }
+        return result;
     }
 
     @Override
-    public void delete(Long id) throws SQLException {
+    public boolean delete(Long id) throws SQLException {
+        boolean result = false;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_EMPLOYEE_SQL)) {
             statement.setLong(1, id);
-            statement.executeUpdate();
+            result = statement.executeUpdate()>0;
         }
+        return result;
     }
 }

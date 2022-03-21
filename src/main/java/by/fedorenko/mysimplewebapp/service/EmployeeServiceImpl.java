@@ -25,17 +25,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void insert(Employee employee) throws SQLException {
-        employeeDAO.insert(employee);
+    public boolean insert(Employee employee) throws SQLException {
+        return employeeDAO.insert(employee);
     }
 
     @Override
-    public void update(Employee employee) throws SQLException {
-        employeeDAO.update(employee);
+    public boolean update(Employee employee) throws SQLException {
+        return employeeDAO.update(employee);
     }
 
     @Override
-    public void delete(Long id) throws SQLException {
-        employeeDAO.delete(id);
+    public boolean delete(Long id) throws SQLException {
+        return employeeDAO.delete(id);
     }
 }
